@@ -80,8 +80,11 @@ for:
       only:
         - image: Visual Studio 2019
         - fast_finish: true
+    environment:
+      PYTHON: "C:\Python39-x64"
+    init:
+      - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
     install:
-      - pip install gyp-next
       - pip install -r requirements.txt
       - ps: Install-Product node $env:nodejs_version
       - npm install
