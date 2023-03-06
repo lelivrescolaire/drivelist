@@ -81,6 +81,7 @@ for:
         - image: Visual Studio 2019
         - fast_finish: true
     install:
+      - pip install gyp-next
       - pip install -r requirements.txt
       - ps: Install-Product node $env:nodejs_version
       - npm install
