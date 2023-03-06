@@ -89,6 +89,7 @@ for:
     install:
       - python --version
       - python3 --version
+      - python3 -m pip install gyp-next
       - pip install -r requirements.txt
       - ps: Install-Product node $env:nodejs_version
       - npm install
