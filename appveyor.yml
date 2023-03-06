@@ -87,6 +87,8 @@ for:
     init:
       - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
     install:
+      - python --version
+      - python3 --version
       - pip install -r requirements.txt
       - ps: Install-Product node $env:nodejs_version
       - npm install
