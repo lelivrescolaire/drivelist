@@ -1,6 +1,6 @@
 {
   "name": "@lls/drivelist",
-  "version": "9.0.28",
+  "version": "9.0.29",
   "private": false,
   "description": "List all connected drives in your computer, in all major operating systems",
   "main": "js/index.js",
