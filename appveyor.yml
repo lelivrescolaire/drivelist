@@ -83,7 +83,8 @@ for:
         - image: Visual Studio 2019
         - fast_finish: true
     environment:
-      PYTHON: "C:\Python39"
+      PYTHON: C:\Python310-x64
+      PYTHON_VERSION: 3.10
     init:
       - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
     install:
