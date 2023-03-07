@@ -24,6 +24,7 @@ branches:
 platform:
   - x86
   - x64
+  - arm64
 
 for:
     ########## UBUNTU SPECIFIC CONFIGURATION ##########
@@ -55,8 +56,9 @@ for:
       only:
         - image: macos
         - fast_finish: true
-    platform: x64
-    environment:
+      allow_failures:
+        - platform: arm64
+      environment:
       CCACHE_TEMPDIR: /tmp/.ccache-temp
       CCACHE_COMPRESS: 1
       CC: "clang"
@@ -82,6 +84,8 @@ for:
       only:
         - image: Visual Studio 2019
         - fast_finish: true
+      allow_failures:
+        - platform: arm64
     environment:
       PYTHON: C:\Python310-x64
       PYTHON_VERSION: 3.10
