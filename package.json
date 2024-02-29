@@ -1,6 +1,6 @@
 {
   "name": "@lls/drivelist",
-  "version": "9.0.29",
+  "version": "9.0.30",
   "private": false,
   "description": "List all connected drives in your computer, in all major operating systems",
   "main": "js/index.js",
@@ -22,18 +22,17 @@
     "test": "mocha -r ts-node/register tests/**/*.spec.ts -R spec",
     "lint": "npm run lint-cpp",
     "lint-cpp": "cpplint --recursive src",
-    "readme": "jsdoc2md --template doc/README.hbs js/index.js > README.md",
     "configure": "node-gyp configure",
     "build": "node-gyp rebuild",
     "build-ts": "tsc",
     "rebuild": "node-gyp rebuild",
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild-node": "prebuild -t 16.17.1 --strip",
-    "prebuild-node-ia32": "prebuild -t 16.17.1 -a ia32 --strip",
-    "prebuild-electron": "prebuild -t 22.3.2 -r electron --strip",
-    "prebuild-electron-ia32": "prebuild -t 22.3.2 -r electron -a ia32 --strip",
+    "prebuild-node": "prebuild -t 18.19.0 --strip",
+    "prebuild-node-ia32": "prebuild -t 18.19.0 -a ia32 --strip",
+    "prebuild-electron": "prebuild -t 29.1.0 -r electron --strip",
+    "prebuild-electron-ia32": "prebuild -t 29.1.0 -r electron -a ia32 --strip",
     "prebuild-release": "npm run prebuild-electron",
-    "prepublishOnly": "npm run build-ts && npm run readme"
+    "prepublishOnly": "npm run build-ts"
   },
   "author": "Maximilien DERRIER <max.derrier@lelivrescolaire.fr>",
   "license": "Apache-2.0",
@@ -46,19 +45,19 @@
     "chai": "4.3.7",
     "eslint": "8.35.0",
     "jsdoc-to-markdown": "8.0.0",
+    "node-gyp": "10.0.1",
     "mocha": "10.2.0",
-    "node-abi": "^3.33.0",
-    "node-gyp": "^9.3.0",
+    "node-abi": "3.56.0",
     "prebuild": "11.0.4",
     "sinon": "15.0.1",
     "ts-node": "10.9.1",
     "typescript": "4.9.5"
   },
   "dependencies": {
+    "node-addon-api": "7.1.0",
     "@types/node": "18.14.6",
     "bindings": "^1.5.0",
     "debug": "^4.1.1",
-    "node-addon-api": "^6.0.0",
     "prebuild-install": "7.1.1"
   }
 }
