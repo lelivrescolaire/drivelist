@@ -65,7 +65,7 @@ for:
       CXX: "clang++"
     install:
       #- python --version || true
-      - ln -s /usr/local/bin/python3 /usr/local/bin/python
+      - ln -s /Applications/Xcode-14.2.0.app/Contents/Developer/usr/bin/python3 /usr/local/bin/python
       - python3 --version
       - pip3 install -r requirements.txt
       - sh: nvm install $nodejs_version
