@@ -1,8 +1,8 @@
 # appveyor file
 # http://www.appveyor.com/docs/appveyor-yml
 image:
-#  - Ubuntu2004
-#  - Visual Studio 2019
+  - Ubuntu2004
+  - Visual Studio 2019
   - macos
 
 init:
@@ -23,33 +23,33 @@ branches:
 
 platform:
   - x86
- # - x64
- # - arm64
+  - x64
+  - arm64
 
 for:
     ########## UBUNTU SPECIFIC CONFIGURATION ##########
-  # - matrix:
-  #     only:
-  #       - image: Ubuntu2004
-  #       - fast_finish: true
-  #   environment:
-  #     CCACHE_TEMPDIR: /tmp/.ccache-temp
-  #     CCACHE_COMPRESS: 1
-  #     CC: "clang"
-  #     CXX: "clang++"
-  #   install:
-  #     - pip install --user -r requirements.txt
-  #     - sh: nvm install $nodejs_version
-  #     - npm install
-  #   build: off
+  - matrix:
+      only:
+        - image: Ubuntu2004
+        - fast_finish: true
+    environment:
+      CCACHE_TEMPDIR: /tmp/.ccache-temp
+      CCACHE_COMPRESS: 1
+      CC: "clang"
+      CXX: "clang++"
+    install:
+      - pip install --user -r requirements.txt
+      - sh: nvm install $nodejs_version
+      - npm install
+    build: off
 
-  #   test_script:
-  #     - node --version
-  #     - npm --version
-  #     - npm test
+    test_script:
+      - node --version
+      - npm --version
+      - npm test
 
-  #   deploy_script:
-  #     - ci/prebuild-publish.sh %nodejs_version%
+    deploy_script:
+      - ci/prebuild-publish.sh %nodejs_version%
 
     ########## OSX SPECIFIC CONFIGURATION ##########
   - matrix:
@@ -64,7 +64,6 @@ for:
       CC: "clang"
       CXX: "clang++"
     install:
-      #- python --version || true
       - ln -s /Applications/Xcode-14.2.0.app/Contents/Developer/usr/bin/python3 /usr/local/bin/python
       - python3 --version
       - pip3 install -r requirements.txt
@@ -81,29 +80,29 @@ for:
       - ci/prebuild-publish.sh %nodejs_version%
 
     ########## Windows SPECIFIC CONFIGURATION ##########
-  # - matrix:
-  #     only:
-  #       - image: Visual Studio 2019
-  #       - fast_finish: true
-  #       - platform: x64
-  #   environment:
-  #     PYTHON: C:\Python310-x64
-  #     PYTHON_VERSION: 3.10
-  #   init:
-  #     - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
-  #   install:
-  #     - python --version
-  #     - python -m pip install gyp-next
-  #     - npm i npm@8 -g
-  #     - pip install -r requirements.txt
-  #     - ps: Install-Product node $env:nodejs_version
-  #     - npm install
-  #   build: off
+  - matrix:
+      only:
+        - image: Visual Studio 2019
+        - fast_finish: true
+        - platform: x64
+    environment:
+      PYTHON: C:\Python310-x64
+      PYTHON_VERSION: 3.10
+    init:
+      - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+    install:
+      - python --version
+      - python -m pip install gyp-next
+      - npm i npm@8 -g
+      - pip install -r requirements.txt
+      - ps: Install-Product node $env:nodejs_version
+      - npm install
+    build: off
 
-  #   test_script:
-  #     - node --version
-  #     - npm --version
-  #     - cmd: npm test
+    test_script:
+      - node --version
+      - npm --version
+      - cmd: npm test
 
-  #   deploy_script:
-  #     - ci\prebuild-publish.bat %nodejs_version%
+    deploy_script:
+      - ci\prebuild-publish.bat %nodejs_version%
