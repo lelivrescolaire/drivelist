@@ -64,6 +64,7 @@ for:
       CC: "clang"
       CXX: "clang++"
     install:
+      - arch
       - ln -s /Applications/Xcode-14.2.0.app/Contents/Developer/usr/bin/python3 /usr/local/bin/python
       - python3 --version
       - pip3 install -r requirements.txt
