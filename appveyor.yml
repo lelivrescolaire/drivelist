@@ -64,7 +64,7 @@ for:
       CC: "clang"
       CXX: "clang++"
     install:
-      - python --version
+      - python --version || true
       - python3 --version
       - pip2 install -r requirements.txt
       - sh: nvm install $nodejs_version
