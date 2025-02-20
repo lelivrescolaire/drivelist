@@ -47,7 +47,7 @@
     "jsdoc-to-markdown": "8.0.0",
     "node-gyp": "10.0.1",
     "mocha": "10.2.0",
-    "node-abi": "3.56.0",
+    "node-abi": "3.74.0",
     "prebuild": "13.0.0",
     "sinon": "15.0.1",
     "ts-node": "10.9.1",
